@@ -1,0 +1,13 @@
+package com.pessoalProject.urubupix;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class UrubupixApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(UrubupixApplication.class, args);
+	}
+
+}
