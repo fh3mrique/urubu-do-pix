@@ -2,6 +2,7 @@ package com.pessoalProject.urubupix.domain.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -13,6 +14,9 @@ public class User {
     private Long id;
     private String name;
     private String email;
+
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    private List<TransactionSimulation> transactionSimulation;
 
     public User(){
 

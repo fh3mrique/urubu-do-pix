@@ -1,14 +1,12 @@
 package com.pessoalProject.urubupix.domain.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
+@Table(name = "tb_simulation")
 public class TransactionSimulation {
 
     @Id
@@ -17,11 +15,19 @@ public class TransactionSimulation {
     private BigDecimal chosenAmout;
     private BigDecimal returnValue;
 
+    @ManyToOne
+    @JoinColumn(name = "user-id")
+    private User user;
+
     public TransactionSimulation(){
     }
 
     public TransactionSimulation(Long id, BigDecimal chosenAmout, BigDecimal returnValue) {
         this.id = id;
+        this.chosenAmout = chosenAmout;
+        this.returnValue = returnValue;
+    }
+    public TransactionSimulation(BigDecimal chosenAmout, BigDecimal returnValue) {
         this.chosenAmout = chosenAmout;
         this.returnValue = returnValue;
     }
